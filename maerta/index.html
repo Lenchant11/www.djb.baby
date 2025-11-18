@@ -47,22 +47,22 @@
   
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --primary-light: #3b82f6;
-      --accent: #06b6d4;
-      --accent-light: #22d3ee;
-      --bg: #f0f9ff;
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #0ea5e9;
+      --accent-light: #38bdf8;
+      --secondary: #7e22ce;
+      --bg: #f8fafc;
       --card: #ffffff;
-      --text: #1e293b;
-      --text-muted: #64748b;
+      --text: #0f172a;
+      --text-muted: #475569;
       --border: #e2e8f0;
       --success: #10b981;
       --warning: #f59e0b;
       --error: #ef4444;
-      --radius: 8px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --transition: all 0.3s ease;
     }
 
@@ -96,7 +96,7 @@
     }
 
     .container {
-      width: min(1120px, 94%);
+      width: min(1200px, 94%);
       margin-inline: auto;
     }
 
@@ -115,13 +115,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 16px 0;
     }
 
     .brand {
       font-weight: 800;
       letter-spacing: .3px;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -129,7 +129,7 @@
 
     .nav-links {
       display: flex;
-      gap: 16px;
+      gap: 24px;
       align-items: center;
     }
 
@@ -142,7 +142,7 @@
 
     .nav-link:hover {
       opacity: 1;
-      color: var(--primary);
+      color: var(--accent);
     }
 
     /* Buttons */
@@ -150,7 +150,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 18px;
+      padding: 12px 20px;
       border-radius: var(--radius);
       border: 0;
       font-weight: 600;
@@ -160,7 +160,7 @@
     }
 
     .btn-lg {
-      padding: 12px 24px;
+      padding: 14px 26px;
       font-size: 1.05rem;
     }
 
@@ -169,53 +169,61 @@
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       color: white;
       box-shadow: var(--shadow);
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
 
     .btn:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
     }
 
-    /* Hero Section */
+    /* Hero Section - Completely Redesigned */
     .hero {
       position: relative;
-      padding: 40px 0 20px;
+      padding: 60px 0 40px;
       overflow: hidden;
-      background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 50%, #e0f2fe 100%);
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      align-items: stretch;
+      gap: 40px;
     }
 
-    .hero-top {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero-bottom {
+    .hero-content {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 20px;
-      align-items: stretch;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: start;
     }
 
-    .hero-copy h1 {
-      font-size: 36px;
-      margin: 0 0 12px;
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-badge {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-size: 42px;
       line-height: 1.2;
       font-weight: 800;
       background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -223,77 +231,73 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .subtitle {
+    .hero-subtitle {
       color: var(--text-muted);
-      max-width: 48ch;
-      margin-bottom: 12px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1.6;
+      max-width: 90%;
     }
 
-    .hero-points {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
+    .hero-features {
       display: grid;
-      gap: 8px;
-      color: #475569;
-      font-weight: 500;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 16px;
     }
 
-    .hero-points li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
-    }
-
-    .hero-points li:before {
-      content: "✓";
-      color: var(--success);
-      font-weight: bold;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(180deg, rgba(219, 234, 254, 0.85), rgba(240, 249, 255, 0.95)),
-        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-    }
-
-    .local-companies {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .company-logo {
-      padding: 10px 16px;
+    .feature-card {
       background: var(--card);
       border-radius: var(--radius);
+      padding: 20px;
       border: 1px solid var(--border);
-      font-weight: 600;
-      font-size: 0.9rem;
+      box-shadow: var(--shadow);
       transition: var(--transition);
     }
 
-    .company-logo:hover {
-      transform: translateY(-3px);
-      border-color: var(--primary);
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
     }
 
-    /* Form Card */
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+      display: inline-flex;
+      width: 50px;
+      height: 50px;
+      background: rgba(14, 165, 233, 0.1);
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Form Card - Redesigned */
+    .form-container {
+      position: sticky;
+      top: 100px;
+    }
+
     .form-card {
       background: var(--card);
-      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 24px;
       box-shadow: var(--shadow-lg);
       position: relative;
+      border: 1px solid var(--border);
     }
 
     .form-card:before {
@@ -302,30 +306,49 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
+      height: 6px;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       border-radius: var(--radius) var(--radius) 0 0;
     }
 
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     .form-title {
-      margin: 0 0 8px;
-      font-size: 22px;
+      font-size: 24px;
+      font-weight: 800;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .form-note {
       color: var(--text-muted);
-      margin: 0 0 16px;
       font-size: 0.95rem;
-      line-height: 1.5;
+    }
+
+    .progress-bar {
+      display: flex;
+      margin: 20px 0;
+      gap: 4px;
+    }
+
+    .progress-step {
+      flex: 1;
+      height: 4px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 2px;
+    }
+
+    .progress-step.active {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
     .field {
-      margin-bottom: 16px;
-      position: relative;
+      margin-bottom: 18px;
     }
 
     .field.check {
@@ -342,7 +365,7 @@
 
     label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 600;
       font-size: 0.95rem;
     }
@@ -357,7 +380,7 @@
       color: var(--text);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 12px 14px;
+      padding: 14px 16px;
       outline: none;
       font-family: inherit;
       font-size: 0.95rem;
@@ -365,15 +388,15 @@
     }
 
     input:focus, select:focus {
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
-      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+      border-color: var(--accent);
     }
 
     .form-status {
-      margin-top: 12px;
+      margin-top: 16px;
       font-size: 0.92rem;
-      padding: 10px;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.2);
     }
@@ -396,7 +419,7 @@
     .country-code {
       flex: 0 0 auto;
       background: rgba(0,0,0,0.05);
-      padding: 12px 14px;
+      padding: 14px 16px;
       border: 1px solid var(--border);
       border-right: none;
       border-radius: var(--radius) 0 0 var(--radius);
@@ -409,21 +432,442 @@
       flex: 1;
     }
 
-    .progress-bar {
+    .security-badge {
       display: flex;
-      margin: 16px 0;
-      gap: 4px;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
     }
 
-    .progress-step {
-      flex: 1;
-      height: 4px;
-      background: rgba(0,0,0,0.1);
-      border-radius: 2px;
+    .security-badge svg {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
     }
 
-    .progress-step.active {
+    /* Company Logos */
+    .companies-section {
+      margin-top: 40px;
+    }
+
+    .companies-title {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .companies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .company-logo {
+      padding: 12px 20px;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .company-logo:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    /* Sections */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section.alt {
+      background: #f1f5f9;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
       background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      gap: 24px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.3);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-header {
+      margin-bottom: 16px;
+    }
+
+    .card-badge {
+      background: linear-gradient(90deg, var(--success), #34d399);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: grid;
+      gap: 10px;
+      flex-grow: 1;
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .card-list li:before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Requirements Grid */
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .requirement-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .requirement-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.3);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .requirement-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: inline-flex;
+      width: 70px;
+      height: 70px;
+      background: rgba(14, 165, 233, 0.1);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .requirement-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .requirement-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.3);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      position: relative;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      border-color: rgba(14, 165, 233, 0.3);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial:before {
+      content: """;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 40px;
+      color: rgba(14, 165, 233, 0.2);
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-content {
+      margin-bottom: 20px;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .testimonial-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .testimonial-location {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-badge {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .cta-title {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(14, 165, 233, 0.3);
+    }
+
+    .faq-question {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 8px 0;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 12px 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 20px;
+      background: #f1f5f9;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copyright {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
 
     /* Modal styles */
@@ -451,50 +895,18 @@
     .modal-content {
       background: var(--card);
       border-radius: var(--radius);
-      padding: 24px;
-      max-width: 400px;
+      padding: 30px;
+      max-width: 450px;
       width: 90%;
       text-align: center;
       box-shadow: var(--shadow-lg);
       position: relative;
     }
 
-    .modal-title {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
-
-    .modal-message {
-      margin-bottom: 20px;
-      line-height: 1.5;
-      color: var(--text-muted);
-    }
-
-    .modal-btn {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .modal-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
-
-    /* Close button for modal */
     .modal-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 15px;
+      right: 15px;
       background: transparent;
       border: none;
       font-size: 20px;
@@ -506,9 +918,40 @@
       color: var(--text);
     }
 
+    .modal-title {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .modal-message {
+      margin-bottom: 24px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .modal-btn {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      padding: 12px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
     /* Age warning modal */
     .age-warning-modal .modal-content {
-      max-width: 420px;
+      max-width: 450px;
     }
 
     .age-warning-modal .modal-title {
@@ -517,391 +960,9 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Sections */
-    .section {
-      padding: 40px 0;
-    }
-
-    .section.alt {
-      background: #e0f2fe;
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 30px;
-      font-weight: 800;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .muted {
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .small {
-      font-size: 0.88rem;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
-    /* Cards */
-    .cards {
-      display: grid;
-      gap: 18px;
-    }
-
-    .two-col {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .three-col {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(37, 99, 235, 0.3);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .card-media {
-      height: 140px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-media:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
-    }
-
-    .media-pt {
-      background-image: linear-gradient(135deg, rgba(37, 99, 235, 0.7), rgba(6, 182, 212, 0.7)), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-    }
-
-    .media-ft {
-      background-image: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(37, 99, 235, 0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80') center/cover no-repeat;
-    }
-
-    .card-body h3 {
-      margin: 16px 0 12px;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .earnings-badge {
-      background: linear-gradient(90deg, var(--success), #34d399);
-      color: white;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .list {
-      padding-left: 0;
-      margin: 0;
-      display: grid;
-      gap: 8px;
-    }
-
-    .list li {
-      margin-left: 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.95rem;
-    }
-
-    .list li:before {
-      content: "•";
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .bonus {
-      text-align: center;
-      position: relative;
-    }
-
-    .bonus-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-      display: inline-flex;
-      width: 60px;
-      height: 60px;
-      background: rgba(37, 99, 235, 0.1);
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .bonus:hover .bonus-icon {
-      transform: scale(1.05);
-      transition: var(--transition);
-    }
-
-    .requirements {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .req-item {
-      display: flex;
-      gap: 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .req-item:hover {
-      border-color: rgba(37, 99, 235, 0.3);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .req-icon {
-      font-size: 24px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .benefits-media {
-      height: 240px;
-      border-radius: var(--radius);
-      background:
-        radial-gradient(120px 120px at 30% 40%, rgba(37, 99, 235, 0.3) 0%, transparent 60%),
-        linear-gradient(135deg, var(--primary), var(--accent));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .benefits-media:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1551836026-d5c88ac5d4d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
-      opacity: 0.4;
-      mix-blend-mode: overlay;
-    }
-
-    .stats {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .stats li {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .stats li:hover {
-      transform: translateY(-3px);
-      border-color: rgba(37, 99, 235, 0.3);
-    }
-
-    .stats strong {
-      display: block;
-      font-size: 1.5rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 4px;
-      font-weight: 700;
-    }
-
-    .testimonial {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin: 0;
-      position: relative;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .testimonial:hover {
-      transform: translateY(-3px);
-      border-color: rgba(37, 99, 235, 0.3);
-    }
-
-    .testimonial:before {
-      content: """;
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      font-size: 40px;
-      color: rgba(37, 99, 235, 0.2);
-      font-family: Georgia, serif;
-    }
-
-    .testimonial p {
-      margin: 0 0 16px;
-      font-style: italic;
-      position: relative;
-      z-index: 1;
-      font-size: 0.95rem;
-    }
-
-    .testimonial footer {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 12px;
-      font-size: 1.1rem;
-      color: white;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 50%, #e0f2fe 100%);
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    .cta-inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .cta h2 {
-      margin-bottom: 16px;
-    }
-
-    .faq {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      margin-bottom: 16px;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .faq:hover {
-      border-color: rgba(37, 99, 235, 0.3);
-    }
-
-    .faq summary {
-      cursor: pointer;
-      font-weight: 600;
-      padding: 8px 0;
-      font-size: 1rem;
-    }
-
-    .faq div {
-      padding: 12px 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0 20px;
-      background: #e0f2fe;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .security-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 16px;
-      padding: 12px;
-      background: rgba(16, 185, 129, 0.1);
-      border-radius: var(--radius);
-      font-size: 0.9rem;
-    }
-
-    .security-badge svg {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-    }
-
-    /* Opportunity elements */
-    .opportunity-badge {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
     /* Animation */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -924,263 +985,139 @@
       animation: pulse 2s infinite;
     }
 
-    /* User photos section */
-    .user-photos {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .user-photo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--primary);
-    }
-
-    /* Hero right content */
-    .hero-right-content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .hero-right-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-right-card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-    }
-
-    /* Malta elements */
-    .malta-flag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      background: rgba(0,0,0,0.05);
-      border-radius: 20px;
-    }
-
-    .malta-flag img {
-      width: 24px;
-      height: 14px;
-      border-radius: 2px;
-    }
-
-    /* Language content */
-    .language-content {
-      display: none;
-    }
-
-    .language-content.active {
-      display: block;
-    }
-
     /* Earnings disclaimer */
     .earnings-disclaimer {
       font-size: 0.85rem;
       color: var(--text-muted);
       text-align: center;
-      margin-top: 16px;
-      padding: 12px;
+      margin-top: 20px;
+      padding: 16px;
       background: rgba(0,0,0,0.03);
-      border-radius: 6px;
+      border-radius: var(--radius);
     }
 
     /* Mobile responsiveness */
-    @media (max-width: 980px) {
-      .hero-grid {
+    @media (max-width: 1024px) {
+      .hero-content {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 40px;
       }
       
-      .hero-bottom {
+      .form-container {
+        position: static;
+      }
+      
+      .hero-features {
         grid-template-columns: 1fr;
-        gap: 20px;
+      }
+      
+      .requirements-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 16px;
+      }
+      
+      .hero-title {
+        font-size: 32px;
+      }
+      
+      .section-title, .cta-title {
+        font-size: 28px;
       }
       
       .two-col {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
       
       .three-col {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
       
-      .requirements {
+      .requirements-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
       }
       
-      .benefits-grid {
+      .stats-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .stats {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      
-      .hero-copy h1 {
-        font-size: 32px;
-      }
-      
-      h2 {
-        font-size: 28px;
-      }
-      
-      .section {
-        padding: 30px 0;
-      }
-      
-      .section-header {
-        margin-bottom: 30px;
-      }
-      
-      .nav-links .nav-link {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        gap: 8px;
-      }
-      
-      .btn {
-        padding: 8px 16px;
-        font-size: 0.92rem;
-      }
-      
-      .btn-lg {
-        padding: 10px 20px;
       }
       
       .footer-grid {
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
       }
       
       .footer-links {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
       }
-      
-      .requirements {
-        grid-template-columns: 1fr;
-        gap: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links .nav-link {
+        display: none;
       }
       
       .hero {
-        padding: 30px 0 15px;
-      }
-      
-      .hero-copy h1 {
-        font-size: 28px;
-      }
-      
-      h2 {
-        font-size: 26px;
+        padding: 40px 0 30px;
       }
       
       .section {
-        padding: 24px 0;
+        padding: 40px 0;
       }
       
       .cta {
-        padding: 30px 0;
+        padding: 40px 0;
       }
       
-      .local-companies {
-        justify-content: center;
+      .hero-title {
+        font-size: 28px;
       }
       
-      .form-card {
-        padding: 20px;
+      .section-title, .cta-title {
+        font-size: 24px;
       }
       
-      .card {
-        padding: 16px;
+      .requirements-grid {
+        grid-template-columns: 1fr;
       }
       
-      .testimonial {
-        padding: 16px;
+      .hero-subtitle {
+        font-size: 1.1rem;
       }
       
-      .stats li {
-        padding: 12px;
-      }
-      
-      .benefits-media {
-        height: 200px;
-      }
-      
-      .user-photos {
-        gap: 8px;
-      }
-      
-      .user-photo {
-        width: 50px;
-        height: 50px;
-      }
-      
-      /* Ensure form is visible on mobile */
-      .form-card {
-        margin-top: 0;
+      .section-subtitle, .cta-subtitle {
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
-      .hero-copy h1 {
-        font-size: 24px;
-      }
-      
-      h2 {
-        font-size: 22px;
-      }
-      
       .brand {
         font-size: 1.2rem;
       }
       
-      .nav-link {
-        font-size: 0.9rem;
-      }
-      
       .btn {
+        padding: 10px 16px;
         font-size: 0.9rem;
       }
       
-      .hero-points li {
-        font-size: 0.9rem;
+      .btn-lg {
+        padding: 12px 20px;
       }
       
-      .subtitle {
-        font-size: 1rem;
+      .hero-title {
+        font-size: 24px;
+      }
+      
+      .section-title, .cta-title {
+        font-size: 22px;
       }
     }
   </style>
@@ -1191,27 +1128,115 @@
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Home">MaltaRemoteJobs</a>
       <nav class="nav-links">
-        <a href="#roles" class="nav-link" data-en="Opportunities" data-mt="Opportunitajiet">Opportunities</a>
+        <a href="#opportunities" class="nav-link" data-en="Opportunities" data-mt="Opportunitajiet">Opportunities</a>
         <a href="#benefits" class="nav-link" data-en="Benefits" data-mt="Vantaġġi">Benefits</a>
+        <a href="#testimonials" class="nav-link" data-en="Testimonials" data-mt="Testimonjali">Testimonials</a>
         <a href="#faq" class="nav-link" data-en="FAQ" data-mt="Mistoqsijiet">FAQ</a>
         <a href="#" class="btn btn-primary" id="openFormBtn" data-en="Apply Now" data-mt="Applika Issa">Apply Now</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero + Form -->
+  <!-- Hero Section -->
   <section id="top" class="hero">
     <div class="container hero-grid">
-      <!-- Top section -->
-      <div class="hero-top fade-in">
-        <div class="opportunity-badge" data-en="🌟 LIMITED SPOTS AVAILABLE - APPLY NOW!" data-mt="🌟 POSTIJET LIMITATI DISPONIBBLI - APPLIKA IMMA!">🌟 LIMITED SPOTS AVAILABLE - APPLY NOW!</div>
-        <h1 data-en="Discover Flexible Remote Work Opportunities in Malta" data-mt="Skopri Opportunitajiet ta' Xogħol Remot Flessibbli f'Malta">Discover Flexible Remote Work Opportunities in Malta</h1>
-        <p class="subtitle" data-en="Join thousands of Maltese residents earning from home with simple online tasks. Flexible hours, immediate start, and zero registration fees." data-mt="Ingħaqad ma' eluf ta' residenti Maltin li qed jaqilgħu mid-dar b'xogħol onlajn sempliċi. Sigħat flessibbli, bidla immedjata, u bla ħlasijiet ta' reġistrazzjoni.">
-          Join thousands of Maltese residents earning from home with simple online tasks. Flexible hours, immediate start, and zero registration fees.
-        </p>
+      <div class="hero-content">
+        <div class="hero-main">
+          <div class="hero-badge" data-en="🌟 LIMITED SPOTS AVAILABLE - APPLY NOW!" data-mt="🌟 POSTIJET LIMITATI DISPONIBBLI - APPLIKA IMMA!">🌟 LIMITED SPOTS AVAILABLE - APPLY NOW!</div>
+          <h1 class="hero-title" data-en="Discover Flexible Remote Work Opportunities in Malta" data-mt="Skopri Opportunitajiet ta' Xogħol Remot Flessibbli f'Malta">Discover Flexible Remote Work Opportunities in Malta</h1>
+          <p class="hero-subtitle" data-en="Join thousands of Maltese residents earning from home with simple online tasks. Flexible hours, immediate start, and zero registration fees." data-mt="Ingħaqad ma' eluf ta' residenti Maltin li qed jaqilgħu mid-dar b'xogħol onlajn sempliċi. Sigħat flessibbli, bidla immedjata, u bla ħlasijiet ta' reġistrazzjoni.">
+            Join thousands of Maltese residents earning from home with simple online tasks. Flexible hours, immediate start, and zero registration fees.
+          </p>
+          
+          <div class="hero-features">
+            <div class="feature-card fade-in">
+              <div class="feature-icon">💼</div>
+              <h3 class="feature-title" data-en="Flexible Hours" data-mt="Sigħat Flessibbli">Flexible Hours</h3>
+              <p class="feature-desc" data-en="Work whenever you want, day or night" data-mt="Aħdem meta trid, bil-lejl jew binhar">Work whenever you want, day or night</p>
+            </div>
+            <div class="feature-card fade-in delay-1">
+              <div class="feature-icon">💰</div>
+              <h3 class="feature-title" data-en="Zero Fees" data-mt="Ebda Ħlas">Zero Fees</h3>
+              <p class="feature-desc" data-en="No registration or hidden costs" data-mt="Ebda reġistrazzjoni jew spejjeż moħbija">No registration or hidden costs</p>
+            </div>
+            <div class="feature-card fade-in delay-2">
+              <div class="feature-icon">📱</div>
+              <h3 class="feature-title" data-en="Simple Tasks" data-mt="Xogħol Sempliċi">Simple Tasks</h3>
+              <p class="feature-desc" data-en="Watch videos, complete surveys, test apps" data-mt="Ara vidjows, kompli stħarriġ, ittestja apps">Watch videos, complete surveys, test apps</p>
+            </div>
+            <div class="feature-card fade-in delay-3">
+              <div class="feature-icon">🚀</div>
+              <h3 class="feature-title" data-en="Immediate Start" data-mt="Bidla Immedjata">Immediate Start</h3>
+              <p class="feature-desc" data-en="Begin earning within hours of signing up" data-mt="Ibda taqla' fi żmien sigħat wara reġistrazzjoni">Begin earning within hours of signing up</p>
+            </div>
+          </div>
+        </div>
         
-        <!-- Local companies -->
-        <div class="local-companies">
+        <!-- Form Card -->
+        <div class="form-container">
+          <div class="form-card fade-in">
+            <div class="form-header">
+              <h2 class="form-title" data-en="Start Your Application" data-mt="Ibda l-Applikazzjoni Tiegħek">Start Your Application</h2>
+              <p class="form-note" data-en="Complete this quick form to explore available remote work opportunities." data-mt="Kompli dan il-formola malajr biex tesplora l-opportunitajiet disponibbli ta' xogħol remot.">
+                Complete this quick form to explore available remote work opportunities.
+              </p>
+            </div>
+            
+            <div class="progress-bar">
+              <div class="progress-step active"></div>
+              <div class="progress-step"></div>
+              <div class="progress-step"></div>
+            </div>
+
+            <form id="applicationForm" novalidate>
+              <div class="field">
+                <label for="name" data-en="Full Name" data-mt="Isem Sħiħ">Full Name<span class="req">*</span></label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+              </div>
+
+              <div class="field">
+                <label for="phone" data-en="WhatsApp Number" data-mt="Numru WhatsApp">WhatsApp Number<span class="req">*</span></label>
+                <div class="phone-input-group">
+                  <div class="country-code">
+                    <img src="https://flagcdn.com/w20/mt.png" alt="Malta Flag" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
+                    +356
+                  </div>
+                  <input id="phone" name="phone" type="tel" class="phone-input" placeholder="e.g. 79231234" required inputmode="numeric" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="age" data-en="Age" data-mt="Età">Age<span class="req">*</span></label>
+                <input id="age" name="age" type="text" placeholder="e.g. 25" required inputmode="numeric" pattern="[0-9]*" />
+              </div>
+
+              <div class="field check">
+                <input id="consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
+                <label for="consent" data-en="I accept the <a href='privacy.html'>Privacy Policy</a> and <a href='userterms.html'>Terms of Service</a>." data-mt="Naċċetta l-<a href='privacy.html'>Politika tal-Privatezza</a> u l-<a href='userterms.html'>Termini tas-Servizz</a>.">
+                  I accept the <a href="privacy.html">Privacy Policy</a> and <a href="userterms.html">Terms of Service</a>.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block pulse" data-en="🚀 EXPLORE OPPORTUNITIES" data-mt="🚀 ESPLORA OPPORTUNITAJIET">🚀 EXPLORE OPPORTUNITIES</button>
+              
+              <div class="security-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 12L11 14L15 10" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-en="Your information is secure and never shared with third parties" data-mt="L-informazzjoni tiegħek hija sigura u qatt ma taqsamha ma' terzi partijiet">Your information is secure and never shared with third parties</span>
+              </div>
+              
+              <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Company Logos -->
+      <div class="companies-section">
+        <p class="companies-title" data-en="Trusted by companies across Malta" data-mt="Fdat minn kumpaniji madwar Malta">Trusted by companies across Malta</p>
+        <div class="companies-grid">
           <div class="company-logo">Betsson</div>
           <div class="company-logo">Tipico</div>
           <div class="company-logo">Genesis Gaming</div>
@@ -1219,105 +1244,242 @@
           <div class="company-logo">LeoVegas</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Opportunities Section -->
+  <section id="opportunities" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-en="Work Opportunities" data-mt="Opportunitajiet tax-Xogħol">Work Opportunities</div>
+        <h2 class="section-title" data-en="Choose Your Flexible Work Path" data-mt="Agħżel It-Triq Tiegħek ta' Xogħol Flessibbli">Choose Your Flexible Work Path</h2>
+        <p class="section-subtitle" data-en="Explore opportunities that fit your schedule and lifestyle. Start small and find what works for you!" data-mt="Esplora opportunitajiet li jaqblu mas-skeda u l-istil tal-ħajja tiegħek. Ibda żgħar u sib x'jaħdem għalik!">Explore opportunities that fit your schedule and lifestyle. Start small and find what works for you!</p>
+      </div>
+
+      <div class="cards two-col">
+        <article class="card fade-in">
+          <div class="card-header">
+            <div class="card-badge">Part-Time</div>
+            <h3 class="card-title" data-en="Flexible Remote Work" data-mt="Xogħol Remot Flessibbli">Flexible Remote Work</h3>
+          </div>
+          <ul class="card-list">
+            <li data-en="<strong>Perfect for:</strong> Students, side hustlers, busy parents" data-mt="<strong>Perfett għal:</strong> Studenti, side hustlers, ġenituri busy"><strong>Perfect for:</strong> Students, side hustlers, busy parents</li>
+            <li data-en="<strong>Time commitment:</strong> Flexible 1–3 hours/day" data-mt="<strong>Impenj ta' żmien:</strong> Flessibbli 1–3 sigħat/jum"><strong>Time commitment:</strong> Flexible 1–3 hours/day</li>
+            <li data-en="<strong>Payment:</strong> Regular payment opportunities" data-mt="<strong>Ħlas:</strong> Opportunitajiet ta' ħlas regolari"><strong>Payment:</strong> Regular payment opportunities</li>
+            <li data-en="<strong>All you need:</strong> Smartphone + internet" data-mt="<strong>Kollox li għandek bżonn:</strong> Smartphone + internet"><strong>All you need:</strong> Smartphone + internet</li>
+            <li data-en="<strong>Tasks:</strong> Watching videos, simple surveys" data-mt="<strong>Xogħol:</strong> Tfittex vidjows, stħarriġ sempliċi"><strong>Tasks:</strong> Watching videos, simple surveys</li>
+          </ul>
+          <a href="#" class="btn btn-primary open-form-btn" data-en="🎯 EXPLORE PART-TIME" data-mt="🎯 ESPLORA PART-TIME">🎯 EXPLORE PART-TIME</a>
+        </article>
+
+        <article class="card fade-in delay-1">
+          <div class="card-header">
+            <div class="card-badge">Full-Time</div>
+            <h3 class="card-title" data-en="Dedicated Remote Work" data-mt="Xogħol Remot Ddikjat">Dedicated Remote Work</h3>
+          </div>
+          <ul class="card-list">
+            <li data-en="<strong>Perfect for:</strong> Career changers, serious earners" data-mt="<strong>Perfett għal:</strong> Nies li qed jibdlu karriera, min irid jaqla' serjament"><strong>Perfect for:</strong> Career changers, serious earners</li>
+            <li data-en="<strong>Time commitment:</strong> 3–6 flexible hours/day" data-mt="<strong>Impenj ta' żmien:</strong> 3–6 sigħat flessibbli/jum"><strong>Time commitment:</strong> 3–6 flexible hours/day</li>
+            <li data-en="<strong>Payment:</strong> Regular payment opportunities" data-mt="<strong>Ħlas:</strong> Opportunitajiet ta' ħlas regolari"><strong>Payment:</strong> Regular payment opportunities</li>
+            <li data-en="<strong>All you need:</strong> Smartphone (PC optional)" data-mt="<strong>Kollox li għandek bżonn:</strong> Smartphone (PC opzjonali)"><strong>All you need:</strong> Smartphone (PC optional)</li>
+            <li data-en="<strong>Tasks:</strong> Variety of simple online activities" data-mt="<strong>Xogħol:</strong> Varjetà ta' attivitajiet onlajn sempliċi"><strong>Tasks:</strong> Variety of simple online activities</li>
+          </ul>
+          <a href="#" class="btn btn-primary open-form-btn" data-en="💼 EXPLORE FULL-TIME" data-mt="💼 ESPLORA FULL-TIME">💼 EXPLORE FULL-TIME</a>
+        </article>
+      </div>
       
-      <!-- Bottom section -->
-      <div class="hero-bottom">
-        <!-- Left: Form -->
-        <aside id="apply" class="form-card fade-in delay-1" aria-label="Application Form">
-          <h2 class="form-title" data-en="Start Your Application Today" data-mt="Ibda l-Applikazzjoni Tiegħek Illum">Start Your Application Today</h2>
-          <p class="form-note" data-en="Complete this quick form to explore available remote work opportunities." data-mt="Kompli dan il-formola malajr biex tesplora l-opportunitajiet disponibbli ta' xogħol remot.">
-            Complete this quick form to explore available remote work opportunities.
-          </p>
-          
-          <div class="progress-bar">
-            <div class="progress-step active"></div>
-            <div class="progress-step"></div>
-            <div class="progress-step"></div>
+      <!-- Earnings Disclaimer -->
+      <div class="earnings-disclaimer fade-in">
+        <p data-en="Earnings vary based on individual effort, task availability, and other factors. We do not guarantee any specific income level. Results may vary." data-mt="Il-ħlasijiet jvarjaw skont l-isforz individwali, id-disponibbiltà tax-xogħol, u fatturi oħra. Aħna ma ngarrfux livell ta' dħul speċifiku. Ir-riżultati jistgħu jvarjaw.">
+          Earnings vary based on individual effort, task availability, and other factors. We do not guarantee any specific income level. Results may vary.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-en="Why Choose Us" data-mt="Għaliex Tagħżelna">Why Choose Us</div>
+        <h2 class="section-title" data-en="Everything You Need to Get Started" data-mt="Kollox li Għandek Bżonn biex Tibda">Everything You Need to Get Started</h2>
+        <p class="section-subtitle" data-en="Simple requirements to begin exploring remote work opportunities." data-mt="Rekwiżiti sempliċi biex tibda tesplora opportunitajiet ta' xogħol remot.">Simple requirements to begin exploring remote work opportunities.</p>
+      </div>
+      
+      <div class="requirements-grid">
+        <div class="requirement-card fade-in">
+          <div class="requirement-icon">📱</div>
+          <h3 class="requirement-title" data-en="Smartphone" data-mt="Smartphone">Smartphone</h3>
+          <p class="requirement-desc" data-en="Android or iOS with stable internet." data-mt="Android jew iOS b'internet stabbli.">Android or iOS with stable internet.</p>
+        </div>
+        <div class="requirement-card fade-in delay-1">
+          <div class="requirement-icon">💸</div>
+          <h3 class="requirement-title" data-en="Follow Steps" data-mt="Segwi Passi">Follow Steps</h3>
+          <p class="requirement-desc" data-en="Complete tasks and submit proof." data-mt="Kompli xogħol u ibgħat prova.">Complete tasks and submit proof.</p>
+        </div>
+        <div class="requirement-card fade-in delay-1">
+          <div class="requirement-icon">🎯</div>
+          <h3 class="requirement-title" data-en="Age 18+" data-mt="Età 18+">Age 18+</h3>
+          <p class="requirement-desc" data-en="We verify age for eligibility." data-mt="Nivverifikaw l-età għall-eliġibbiltà.">We verify age for eligibility.</p>
+        </div>
+        <div class="requirement-card fade-in delay-2">
+          <div class="requirement-icon">🤝</div>
+          <h3 class="requirement-title" data-en="All Welcome" data-mt="Lkoll Merħba">All Welcome</h3>
+          <p class="requirement-desc" data-en="Inclusive opportunities for everyone." data-mt="Opportunitajiet inklużivi għal kulħadd.">Inclusive opportunities for everyone.</p>
+        </div>
+        <div class="requirement-card fade-in delay-2">
+          <div class="requirement-icon">⚡</div>
+          <h3 class="requirement-title" data-en="Basic Skills" data-mt="Ħiliet Bażiċi">Basic Skills</h3>
+          <p class="requirement-desc" data-en="Reading instructions and simple tasks." data-mt="Qari ta' struzzjonijiet u xogħol sempliċi.">Reading instructions and simple tasks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-en="Our Community" data-mt="Il-Komunità Tagħna">Our Community</div>
+        <h2 class="section-title" data-en="Join Thousands of Remote Workers in Malta" data-mt="Ingħaqad ma' Eluf ta' Ħaddiema Remoti f'Malta">Join Thousands of Remote Workers in Malta</h2>
+        <p class="section-subtitle" data-en="Become part of our growing community of Maltese residents discovering flexible work opportunities!" data-mt="Issir parti mill-komunità tikber tagħna ta' residenti Maltin li qed jiskopru opportunitajiet ta' xogħol flessibbli!">Become part of our growing community of Maltese residents discovering flexible work opportunities!</p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card fade-in">
+          <div class="stat-number">15,000+</div>
+          <div class="stat-label" data-en="Community Members" data-mt="Membri tal-Komunità">Community Members</div>
+        </div>
+        <div class="stat-card fade-in delay-1">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label" data-en="Tasks Completed" data-mt="Xogħlijiet Imlestin">Tasks Completed</div>
+        </div>
+        <div class="stat-card fade-in delay-2">
+          <div class="stat-number">200+</div>
+          <div class="stat-label" data-en="Support Team" data-mt="Tim tas-Support">Support Team</div>
+        </div>
+        <div class="stat-card fade-in delay-3">
+          <div class="stat-number">96%</div>
+          <div class="stat-label" data-en="Satisfaction Rate" data-mt="Rate ta' Sodisfazzjon">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-en="Testimonials" data-mt="Testimonjali">Testimonials</div>
+        <h2 class="section-title" data-en="Real People, Real Experiences" data-mt="Nies Real, Esperjenzi Real">Real People, Real Experiences</h2>
+        <p class="section-subtitle" data-en="Hear from Maltese residents who discovered flexible work opportunities with our platform." data-mt="Isma' minn residenti Maltin li skoprew opportunitajiet ta' xogħol flessibbli mal-pjattaforma tagħna.">Hear from Maltese residents who discovered flexible work opportunities with our platform.</p>
+      </div>
+      
+      <div class="cards three-col">
+        <div class="testimonial fade-in">
+          <div class="testimonial-content">
+            <p data-en="&quot;I was skeptical at first, but the tasks are genuinely simple. Found great flexibility for my schedule as a student!&quot;" data-mt="&quot;Kont skeptiku fl-ewwel, imma x-xogħol huwa verament sempliċi. Sibt flessibilità kbira għas-skeda tiegħi bħala student!&quot;">"I was skeptical at first, but the tasks are genuinely simple. Found great flexibility for my schedule as a student!"</p>
           </div>
-
-          <form id="applicationForm" novalidate>
-            <div class="field">
-              <label for="name" data-en="Full Name" data-mt="Isem Sħiħ">Full Name<span class="req">*</span></label>
-              <input id="name" name="name" type="text" placeholder="Your full name" required autocomplete="name" />
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-en="Maria" data-mt="Maria">Maria</div>
+              <div class="testimonial-location" data-en="Valletta" data-mt="Valletta">Valletta</div>
             </div>
-
-            <div class="field">
-              <label for="phone" data-en="WhatsApp Number" data-mt="Numru WhatsApp">WhatsApp Number<span class="req">*</span></label>
-              <div class="phone-input-group">
-                <div class="country-code">
-                  <img src="https://flagcdn.com/w20/mt.png" alt="Malta Flag" width="20" height="14" style="display:inline-block;vertical-align:middle;margin-right:8px;border-radius:2px;">
-                  +356
-                </div>
-                <input id="phone" name="phone" type="tel" class="phone-input" placeholder="e.g. 79231234" required inputmode="numeric" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="age" data-en="Age" data-mt="Età">Age<span class="req">*</span></label>
-              <input id="age" name="age" type="text" placeholder="e.g. 25" required inputmode="numeric" pattern="[0-9]*" />
-            </div>
-
-            <div class="field check">
-              <input id="consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
-              <label for="consent" data-en="I accept the <a href='privacy.html'>Privacy Policy</a> and <a href='userterms.html'>Terms of Service</a>." data-mt="Naċċetta l-<a href='privacy.html'>Politika tal-Privatezza</a> u l-<a href='userterms.html'>Termini tas-Servizz</a>.">
-                I accept the <a href="privacy.html">Privacy Policy</a> and <a href="userterms.html">Terms of Service</a>.
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block pulse" data-en="🚀 EXPLORE OPPORTUNITIES" data-mt="🚀 ESPLORA OPPORTUNITAJIET">🚀 EXPLORE OPPORTUNITIES</button>
-            
-            <div class="security-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 12L11 14L15 10" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span data-en="Your information is secure and never shared with third parties" data-mt="L-informazzjoni tiegħek hija sigura u qatt ma taqsamha ma' terzi partijiet">Your information is secure and never shared with third parties</span>
-            </div>
-            
-            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </aside>
-
-        <!-- Right: Additional content -->
-        <div class="hero-right-content fade-in delay-2">
-          <!-- User photos -->
-          <div class="hero-right-card">
-            <h3 data-en="🌟 Join Our Community of Remote Workers" data-mt="🌟 Ingħaqad Mal-Komunità Tagħna ta' Ħaddiema Remoti">🌟 Join Our Community of Remote Workers</h3>
-            <div class="user-photos">
-              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="User 1" class="user-photo">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="User 2" class="user-photo">
-              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="User 3" class="user-photo">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="User 4" class="user-photo">
-              <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80" alt="User 5" class="user-photo">
-            </div>
-            <p class="muted small" data-en="Real people finding real opportunities from home!" data-mt="Nies reali qed isibu opportunitajiet reali mid-dar!">Real people finding real opportunities from home!</p>
           </div>
-          
-          <!-- Benefits points -->
-          <div class="hero-right-card">
-            <h3 data-en="✅ Why Choose MaltaRemoteJobs" data-mt="✅ Għaliex Tagħżel MaltaRemoteJobs">✅ Why Choose MaltaRemoteJobs</h3>
-            <ul class="hero-points">
-              <li data-en="💰 Flexible earning opportunities" data-mt="💰 Opportunitajiet ta' qligħ flessibbli">💰 Flexible earning opportunities</li>
-              <li data-en="⏰ Work whenever you want - 100% flexible" data-mt="⏰ Aħdem meta trid - 100% flessibbli">⏰ Work whenever you want - 100% flexible</li>
-              <li data-en="📱 Simple tasks - watch videos, complete surveys" data-mt="📱 Xogħol sempliċi - ara vidjows, kompli stħarriġ">📱 Simple tasks - watch videos, complete surveys</li>
-              <li data-en="💳 Regular payment opportunities" data-mt="💳 Opportunitajiet ta' ħlas regolari">💳 Regular payment opportunities</li>
-              <li data-en="🚫 No experience or special skills needed" data-mt="🚫 L-ebda esperjenza jew ħiliet speċjali meħtieġa">🚫 No experience or special skills needed</li>
-              <li data-en="🏠 Work from anywhere in Malta" data-mt="🏠 Aħdem minn kullimkien f'Malta">🏠 Work from anywhere in Malta</li>
-            </ul>
+        </div>
+        <div class="testimonial fade-in delay-1">
+          <div class="testimonial-content">
+            <p data-en="&quot;As a student, this has been perfect for my schedule. I work when I want and earn some extra money. Very convenient!&quot;" data-mt="&quot;Bħala student, dan kien perfett għas-skeda tiegħi. Naħdem meta rrid u naqla' xi flus addizzjonali. Ta' konvenjenza kbira!&quot;">"As a student, this has been perfect for my schedule. I work when I want and earn some extra money. Very convenient!"</p>
           </div>
-          
-          <!-- Application Card -->
-          <div class="hero-right-card">
-            <h3 data-en="📝 Ready to Get Started?" data-mt="📝 Lest biex Tibda?">📝 Ready to Get Started?</h3>
-            <p class="muted" style="margin-bottom: 16px;" data-en="Complete your application today to explore available opportunities that match your schedule." data-mt="Kompli l-applikazzjoni tiegħek illum biex tesplora l-opportunitajiet disponibbli li jaqblu mas-skeda tiegħek.">Complete your application today to explore available opportunities that match your schedule.</p>
-            <a href="#" class="btn btn-primary btn-block pulse open-form-btn" data-en="📝 START APPLICATION" data-mt="📝 IBDA L-APPLIKAZZJONI">📝 START APPLICATION</a>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">G</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-en="Giovanni" data-mt="Giovanni">Giovanni</div>
+              <div class="testimonial-location" data-en="Sliema" data-mt="Sliema">Sliema</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial fade-in delay-2">
+          <div class="testimonial-content">
+            <p data-en="&quot;The flexibility lets me care for my kids while exploring work opportunities from home. Very helpful platform!&quot;" data-mt="&quot;Il-flessibilità tħallini nieħu ħsieb it-tfal tiegħi waqt li nesplora opportunitajiet ta' xogħol mid-dar. Pjattaforma ta' għajnuna kbira!&quot;">"The flexibility lets me care for my kids while exploring work opportunities from home. Very helpful platform!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-en="Carmel" data-mt="Carmel">Carmel</div>
+              <div class="testimonial-location" data-en="Birkirkara" data-mt="Birkirkara">Birkirkara</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="hero-bg" role="img" aria-label="Remote work scene: person using laptop at home"></div>
   </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-badge" data-en="🌟 OPPORTUNITIES AVAILABLE NOW!" data-mt="🌟 OPPORTUNITAJET DISPONIBBLI IMMA!">🌟 OPPORTUNITIES AVAILABLE NOW!</div>
+        <h2 class="cta-title" data-en="Ready to Explore Flexible Work Opportunities?" data-mt="Lest biex Tesplora Opportunitajiet ta' Xogħol Flessibbli?">Ready to Explore Flexible Work Opportunities?</h2>
+        <p class="cta-subtitle" data-en="New opportunities are regularly added to our platform. Submit your application today to discover what's available for your schedule." data-mt="Opportunitajiet ġodda qed jiżdiedu regolarment mal-pjattaforma tagħna. Ibgħat l-applikazzjoni tiegħek illum biex issib x'hemm disponibbli għas-skeda tiegħek.">New opportunities are regularly added to our platform. Submit your application today to discover what's available for your schedule.</p>
+        <a class="btn btn-primary btn-lg pulse open-form-btn" href="#" data-en="🚀 EXPLORE OPPORTUNITIES" data-mt="🚀 ESPLORA OPPORTUNITAJIET">🚀 EXPLORE OPPORTUNITIES</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge" data-en="FAQ" data-mt="Mistoqsijiet">FAQ</div>
+        <h2 class="section-title" data-en="Frequently Asked Questions" data-mt="Mistoqsijiet Frekwenti">Frequently Asked Questions</h2>
+        <p class="section-subtitle" data-en="Everything you need to know before exploring our opportunities." data-mt="Kollox li għandek bżonn tkun taf qabel ma tesplora l-opportunitajiet tagħna.">Everything you need to know before exploring our opportunities.</p>
+      </div>
+      
+      <div class="faq-grid">
+        <div class="faq-item fade-in">
+          <div class="faq-question" data-en="Is there any fee to apply or join?" data-mt="Hemm xi ħlas biex tapplika jew tingħaqad?">Is there any fee to apply or join?</div>
+          <div class="faq-answer" data-en="<strong>Absolutely NOT!</strong> We never charge application or registration fees. Our platform is 100% free to join and use. You only explore opportunities - you never pay." data-mt="<strong>Assolutament LE!</strong> Aħna qatt ma nħaqslu ħlasijiet ta' applikazzjoni jew reġistrazzjoni. Il-pjattaforma tagħna hija 100% b'xejn biex tingħaqad u tużaha. Inti biss tesplora opportunitajiet - inti qatt ma tħallas."><strong>Absolutely NOT!</strong> We never charge application or registration fees. Our platform is 100% free to join and use. You only explore opportunities - you never pay.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-question" data-en="How quickly will I get paid?" data-mt="Kif malajr se nħaħlas?">How quickly will I get paid?</div>
+          <div class="faq-answer" data-en="<strong>Most participants receive payment within 24-48 hours</strong> of completing tasks. Payments are processed regularly after tasks pass our quality checks." data-mt="<strong>Il-maġġoranza tal-partecipanti jirċievu ħlas fi żmien 24-48 siegħa</strong> wara li jkomplu x-xogħol. Il-ħlasijiet jiġu pproċessati regolarment wara li x-xogħol jgħaddi mill-kontrolli tal-kwalità tagħna."><strong>Most participants receive payment within 24-48 hours</strong> of completing tasks. Payments are processed regularly after tasks pass our quality checks.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-question" data-en="What equipment do I really need?" data-mt="X'għodda verament għandi bżonn?">What equipment do I really need?</div>
+          <div class="faq-answer" data-en="<strong>Just a smartphone and internet connection!</strong> That's it. No fancy equipment needed. Most tasks can be completed right from your phone." data-mt="<strong>Biss smartphone u konnessjoni tal-internet!</strong> Dik hija. L-ebda għodda fancy meħtieġa. Il-maġġoranza tax-xogħol jista' jitlesta direttament mill-mowbajl tiegħek."><strong>Just a smartphone and internet connection!</strong> That's it. No fancy equipment needed. Most tasks can be completed right from your phone.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-question" data-en="How will you contact me after I apply?" data-mt="Kif se tikkuntattjani wara li napplika?">How will you contact me after I apply?</div>
+          <div class="faq-answer" data-en="<strong>We'll contact you via WhatsApp within hours</strong> with information about available opportunities and how to get started." data-mt="<strong>Aħna nikkuntattjawk permezz ta' WhatsApp fi żmien sigħat</strong> b'informazzjoni dwar l-opportunitajiet disponibbli u kif tibda."><strong>We'll contact you via WhatsApp within hours</strong> with information about available opportunities and how to get started.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-question" data-en="What kind of tasks will I be doing?" data-mt="X'tip ta' xogħol se nagħmel?">What kind of tasks will I be doing?</div>
+          <div class="faq-answer" data-en="<strong>Simple online activities</strong> like watching videos, completing surveys, testing apps, and other digital tasks that can be done from anywhere in Malta." data-mt="<strong>Attivitajiet onlajn sempliċi</strong> bħal tara vidjows, tkompli stħarriġ, ittestja apps, u xogħolijiet oħra diġitali li jistgħu jsiru minn kullimkien f'Malta."><strong>Simple online activities</strong> like watching videos, completing surveys, testing apps, and other digital tasks that can be done from anywhere in Malta.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">MaltaRemoteJobs</a>
+          <p class="section-subtitle" data-en="Real opportunities. Zero fees. Explore flexible work today." data-mt="Opportunitajiet reali. Zero ħlas. Esplora xogħol flessibbli illum.">Real opportunities. Zero fees. Explore flexible work today.</p>
+        </div>
+        <nav class="footer-links">
+          <a id="privacy" href="privacy.html" rel="nofollow" data-en="Privacy Policy" data-mt="Politika tal-Privatezza">Privacy Policy</a>
+          <a id="terms" href="userterms.html" rel="nofollow" data-en="Terms of Service" data-mt="Termini tas-Servizz">Terms of Service</a>
+        </nav>
+      </div>
+      <div class="footer-copyright">
+        <p data-en="© 2024 MaltaRemoteJobs. All rights reserved. Individual results may vary based on effort, task availability, and other factors. We do not guarantee specific earnings." data-mt="© 2024 MaltaRemoteJobs. Id-drittijiet kollha riżervati. Ir-riżultati individwali jistgħu jvarjaw skont l-isforz, id-disponibbiltà tax-xogħol, u fatturi oħra. Aħna ma ngarrfux ħlasijiet speċifiċi.">© 2024 MaltaRemoteJobs. All rights reserved. Individual results may vary based on effort, task availability, and other factors. We do not guarantee specific earnings.</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Success Modal -->
   <div class="modal" id="successModal">
@@ -1345,12 +1507,14 @@
 
   <!-- Form Modal -->
   <div class="modal" id="formModal">
-    <div class="modal-content" style="max-width: 460px;" aria-labelledby="modalFormTitle" role="dialog" aria-modal="true">
+    <div class="modal-content" style="max-width: 500px;" aria-labelledby="modalFormTitle" role="dialog" aria-modal="true">
       <button class="modal-close" id="formModalCloseBtn" aria-label="Close">&times;</button>
-      <h2 class="form-title" id="modalFormTitle" data-en="🚀 Start Exploring Opportunities" data-mt="🚀 Ibda Esplorar Opportunitajiet">🚀 Start Exploring Opportunities</h2>
-      <p class="form-note" data-en="Complete this quick form to explore available remote work opportunities." data-mt="Kompli dan il-formola malajr biex tesplora l-opportunitajiet disponibbli ta' xogħol remot.">
-        Complete this quick form to explore available remote work opportunities.
-      </p>
+      <div class="form-header">
+        <h2 class="form-title" id="modalFormTitle" data-en="🚀 Start Exploring Opportunities" data-mt="🚀 Ibda Esplorar Opportunitajiet">🚀 Start Exploring Opportunities</h2>
+        <p class="form-note" data-en="Complete this quick form to explore available remote work opportunities." data-mt="Kompli dan il-formola malajr biex tesplora l-opportunitajiet disponibbli ta' xogħol remot.">
+          Complete this quick form to explore available remote work opportunities.
+        </p>
+      </div>
       
       <div class="progress-bar">
         <div class="progress-step active"></div>
@@ -1402,246 +1566,9 @@
     </div>
   </div>
 
-  <!-- Hiring (Part-time & Full-time) -->
-  <section id="roles" class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="malta-flag">
-          <img src="https://flagcdn.com/w20/mt.png" alt="Malta Flag">
-          <span data-en="🌟 FLEXIBLE WORK OPPORTUNITIES IN MALTA" data-mt="🌟 OPPORTUNITAJET TA' XOGĦOL FLESSIBBILI FI MALTA">🌟 FLEXIBLE WORK OPPORTUNITIES IN MALTA</span>
-        </div>
-        <h2 data-en="Choose Your Flexible Work Path" data-mt="Agħżel It-Triq Tiegħek ta' Xogħol Flessibbli">Choose Your Flexible Work Path</h2>
-        <p class="muted" data-en="Explore opportunities that fit your schedule and lifestyle. Start small and find what works for you!" data-mt="Esplora opportunitajiet li jaqblu mas-skeda u l-istil tal-ħajja tiegħek. Ibda żgħar u sib x'jaħdem għalik!">Explore opportunities that fit your schedule and lifestyle. Start small and find what works for you!</p>
-      </div>
-
-      <div class="cards two-col">
-        <article class="card fade-in">
-          <div class="card-media media-pt"></div>
-          <div class="card-body">
-            <div class="earnings-badge">🔥 Flexible Hours</div>
-            <h3 data-en="Part-Time Remote Work" data-mt="Xogħol Remot Part-Time">Part-Time Remote Work</h3>
-            <ul class="list">
-              <li data-en="<strong>Perfect for:</strong> Students, side hustlers, busy parents" data-mt="<strong>Perfett għal:</strong> Studenti, side hustlers, ġenituri busy"><strong>Perfect for:</strong> Students, side hustlers, busy parents</li>
-              <li data-en="<strong>Time commitment:</strong> Flexible 1–3 hours/day" data-mt="<strong>Impenj ta' żmien:</strong> Flessibbli 1–3 sigħat/jum"><strong>Time commitment:</strong> Flexible 1–3 hours/day</li>
-              <li data-en="<strong>Payment:</strong> Regular payment opportunities" data-mt="<strong>Ħlas:</strong> Opportunitajiet ta' ħlas regolari"><strong>Payment:</strong> Regular payment opportunities</li>
-              <li data-en="<strong>All you need:</strong> Smartphone + internet" data-mt="<strong>Kollox li għandek bżonn:</strong> Smartphone + internet"><strong>All you need:</strong> Smartphone + internet</li>
-              <li data-en="<strong>Tasks:</strong> Watching videos, simple surveys" data-mt="<strong>Xogħol:</strong> Tfittex vidjows, stħarriġ sempliċi"><strong>Tasks:</strong> Watching videos, simple surveys</li>
-            </ul>
-            <a href="#" class="btn btn-primary open-form-btn" style="margin-top: 12px;" data-en="🎯 EXPLORE PART-TIME" data-mt="🎯 ESPLORA PART-TIME">🎯 EXPLORE PART-TIME</a>
-          </div>
-        </article>
-
-        <article class="card fade-in delay-1">
-          <div class="card-media media-ft"></div>
-          <div class="card-body">
-            <div class="earnings-badge">💎 More Opportunities</div>
-            <h3 data-en="Full-Time Remote Work" data-mt="Xogħol Remot Full-Time">Full-Time Remote Work</h3>
-            <ul class="list">
-              <li data-en="<strong>Perfect for:</strong> Career changers, serious earners" data-mt="<strong>Perfett għal:</strong> Nies li qed jibdlu karriera, min irid jaqla' serjament"><strong>Perfect for:</strong> Career changers, serious earners</li>
-              <li data-en="<strong>Time commitment:</strong> 3–6 flexible hours/day" data-mt="<strong>Impenj ta' żmien:</strong> 3–6 sigħat flessibbli/jum"><strong>Time commitment:</strong> 3–6 flexible hours/day</li>
-              <li data-en="<strong>Payment:</strong> Regular payment opportunities" data-mt="<strong>Ħlas:</strong> Opportunitajiet ta' ħlas regolari"><strong>Payment:</strong> Regular payment opportunities</li>
-              <li data-en="<strong>All you need:</strong> Smartphone (PC optional)" data-mt="<strong>Kollox li għandek bżonn:</strong> Smartphone (PC opzjonali)"><strong>All you need:</strong> Smartphone (PC optional)</li>
-              <li data-en="<strong>Tasks:</strong> Variety of simple online activities" data-mt="<strong>Xogħol:</strong> Varjetà ta' attivitajiet onlajn sempliċi"><strong>Tasks:</strong> Variety of simple online activities</li>
-            </ul>
-            <a href="#" class="btn btn-primary open-form-btn" style="margin-top: 12px;" data-en="💼 EXPLORE FULL-TIME" data-mt="💼 ESPLORA FULL-TIME">💼 EXPLORE FULL-TIME</a>
-          </div>
-        </article>
-      </div>
-      
-      <!-- Earnings Disclaimer -->
-      <div class="earnings-disclaimer fade-in">
-        <p data-en="Earnings vary based on individual effort, task availability, and other factors. We do not guarantee any specific income level. Results may vary." data-mt="Il-ħlasijiet jvarjaw skont l-isforz individwali, id-disponibbiltà tax-xogħol, u fatturi oħra. Aħna ma ngarrfux livell ta' dħul speċifiku. Ir-riżultati jistgħu jvarjaw.">
-          Earnings vary based on individual effort, task availability, and other factors. We do not guarantee any specific income level. Results may vary.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Flexible Work Bonus -->
-  <section class="section alt">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 data-en="💰 Additional Rewards for Active Participants" data-mt="💰 Premjijiet Addizzjonali Għal Partecipanti Attivi">💰 Additional Rewards for Active Participants</h2>
-        <p class="muted" data-en="Stay active and discover additional earning opportunities beyond regular task payments!" data-mt="Żomm attiv u skopri opportunitajiet ta' qligħ addizzjonali lil hinn mill-ħlasijiet regolari tax-xogħol!">Stay active and discover additional earning opportunities beyond regular task payments!</p>
-      </div>
-      
-      <div class="cards three-col">
-        <div class="card bonus fade-in">
-          <div class="bonus-icon" aria-hidden="true">🎁</div>
-          <h3 data-en="5 Active Days" data-mt="5 Jum Attivi">5 Active Days</h3>
-          <p data-en="Complete tasks for just 5 days this month to explore additional opportunities!" data-mt="Kompli xogħol għal 5 jum biss dan ix-xahar biex tesplora opportunitajiet addizzjonali!">Complete tasks for just 5 days this month to explore additional opportunities!</p>
-        </div>
-        <div class="card bonus fade-in delay-1">
-          <div class="bonus-icon" aria-hidden="true">🏆</div>
-          <h3 data-en="15 Active Days" data-mt="15 Jum Attivi">15 Active Days</h3>
-          <p data-en="Maintain consistent activity for 15 days to qualify for increased opportunities!" data-mt="Żomm attività kostanti għal 15-il jum biex tikkwalifika għal opportunitajiet miżjuda!">Maintain consistent activity for 15 days to qualify for increased opportunities!</p>
-        </div>
-        <div class="card bonus fade-in delay-2">
-          <div class="bonus-icon" aria-hidden="true">⭐</div>
-          <h3 data-en="30 Active Days" data-mt="30 Jum Attivi">30 Active Days</h3>
-          <p data-en="Stay active for 30 days to discover our highest level of additional opportunities!" data-mt="Żomm attiv għal 30 jum biex issib l-ogħla livell ta' opportunitajiet addizzjonali!">Stay active for 30 days to discover our highest level of additional opportunities!</p>
-        </div>
-      </div>
-      <p class="muted" style="text-align: center; margin-top: 16px;" data-en="🌟 Additional opportunities depend on task availability and quality review. Terms apply." data-mt="🌟 Opportunitajiet addizzjonali jiddependu fuq id-disponibbiltà tax-xogħol u reviżjoni tal-kwalità. Japplikaw termini.">🌟 Additional opportunities depend on task availability and quality review. Terms apply.</p>
-    </div>
-  </section>
-
-  <!-- Job Requirements -->
-  <section class="section" aria-labelledby="req-title">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 id="req-title" data-en="✅ Everything You Need to Get Started" data-mt="✅ Kollox li Għandek Bżonn biex Tibda">✅ Everything You Need to Get Started</h2>
-        <p class="muted" data-en="Simple requirements to begin exploring remote work opportunities." data-mt="Rekwiżiti sempliċi biex tibda tesplora opportunitajiet ta' xogħol remot.">Simple requirements to begin exploring remote work opportunities.</p>
-      </div>
-      
-      <div class="requirements">
-        <div class="req-item fade-in">
-          <div class="req-icon">📱</div>
-          <div>
-            <h4 data-en="Smartphone" data-mt="Smartphone">Smartphone</h4>
-            <p data-en="Android or iOS with stable internet." data-mt="Android jew iOS b'internet stabbli.">Android or iOS with stable internet.</p>
-          </div>
-        </div>
-        <div class="req-item fade-in delay-1">
-          <div class="req-icon">💸</div>
-          <div>
-            <h4 data-en="Follow Simple Steps" data-mt="Segwi Passi Sempliċi">Follow Simple Steps</h4>
-            <p data-en="Complete tasks and submit proof." data-mt="Kompli xogħol u ibgħat prova.">Complete tasks and submit proof.</p>
-          </div>
-        </div>
-        <div class="req-item fade-in delay-1">
-          <div class="req-icon">🎯</div>
-          <div>
-            <h4 data-en="Age 18+" data-mt="Età 18+">Age 18+</h4>
-            <p data-en="We verify age for eligibility." data-mt="Nivverifikaw l-età għall-eliġibbiltà.">We verify age for eligibility.</p>
-          </div>
-        </div>
-        <div class="req-item fade-in delay-2">
-          <div class="req-icon">🤝</div>
-          <div>
-            <h4 data-en="All Welcome" data-mt="Lkoll Merħba">All Welcome</h4>
-            <p data-en="Inclusive opportunities for everyone." data-mt="Opportunitajiet inklużivi għal kulħadd.">Inclusive opportunities for everyone.</p>
-          </div>
-        </div>
-        <div class="req-item fade-in delay-2">
-          <div class="req-icon">⚡</div>
-          <div>
-            <h4 data-en="Basic Skills" data-mt="Ħiliet Bażiċi">Basic Skills</h4>
-            <p data-en="Reading instructions and simple tasks." data-mt="Qari ta' struzzjonijiet u xogħol sempliċi.">Reading instructions and simple tasks.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work From Home Benefits -->
-  <section id="benefits" class="section alt">
-    <div class="container">
-      <div class="benefits-grid">
-        <div class="benefits-media fade-in"></div>
-        <div class="benefits-copy fade-in delay-1">
-          <h2 data-en="💼 Work From Anywhere - Your Home, Cafe, or Garden!" data-mt="💼 Aħdem Minn Kullimkien - Id-Dar Tiegħek, Cafe, jew Ġnien!">💼 Work From Anywhere - Your Home, Cafe, or Garden!</h2>
-          <ul class="stats">
-            <li><strong>15,000+</strong> <span data-en="Community Members" data-mt="Membri tal-Komunità">Community Members</span></li>
-            <li><strong>50,000+</strong> <span data-en="Tasks Completed" data-mt="Xogħlijiet Imlestin">Tasks Completed</span></li>
-            <li><strong>200+</strong> <span data-en="Support Team" data-mt="Tim tas-Support">Support Team</span></li>
-            <li><strong>96%</strong> <span data-en="Satisfaction Rate" data-mt="Rate ta' Sodisfazzjon">Satisfaction Rate</span></li>
-          </ul>
-          <p class="muted" data-en="Join our growing community of Maltese residents discovering flexible work opportunities!" data-mt="Ingħaqad mal-komunità tikber tagħna ta' residenti Maltin li qed jiskopru opportunitajiet ta' xogħol flessibbli!">Join our growing community of Maltese residents discovering flexible work opportunities!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 data-en="🎉 Real People, Real Experiences" data-mt="🎉 Nies Real, Esperjenzi Real">🎉 Real People, Real Experiences</h2>
-        <p class="muted" data-en="Hear from Maltese residents who discovered flexible work opportunities with our platform." data-mt="Isma' minn residenti Maltin li skoprew opportunitajiet ta' xogħol flessibbli mal-pjattaforma tagħna.">Hear from Maltese residents who discovered flexible work opportunities with our platform.</p>
-      </div>
-      
-      <div class="cards three-col">
-        <blockquote class="testimonial fade-in">
-          <div class="avatar">M</div>
-          <p data-en="&quot;I was skeptical at first, but the tasks are genuinely simple. Found great flexibility for my schedule as a student!&quot;" data-mt="&quot;Kont skeptiku fl-ewwel, imma x-xogħol huwa verament sempliċi. Sibt flessibilità kbira għas-skeda tiegħi bħala student!&quot;">"I was skeptical at first, but the tasks are genuinely simple. Found great flexibility for my schedule as a student!"</p>
-          <footer>— <span data-en="Maria, Valletta" data-mt="Maria, Valletta">Maria, Valletta</span></footer>
-        </blockquote>
-        <blockquote class="testimonial fade-in delay-1">
-          <div class="avatar">G</div>
-          <p data-en="&quot;As a student, this has been perfect for my schedule. I work when I want and earn some extra money. Very convenient!&quot;" data-mt="&quot;Bħala student, dan kien perfett għas-skeda tiegħi. Naħdem meta rrid u naqla' xi flus addizzjonali. Ta' konvenjenza kbira!&quot;">"As a student, this has been perfect for my schedule. I work when I want and earn some extra money. Very convenient!"</p>
-          <footer>— <span data-en="Giovanni, Sliema" data-mt="Giovanni, Sliema">Giovanni, Sliema</span></footer>
-        </blockquote>
-        <blockquote class="testimonial fade-in delay-2">
-          <div class="avatar">C</div>
-          <p data-en="&quot;The flexibility lets me care for my kids while exploring work opportunities from home. Very helpful platform!&quot;" data-mt="&quot;Il-flessibilità tħallini nieħu ħsieb it-tfal tiegħi waqt li nesplora opportunitajiet ta' xogħol mid-dar. Pjattaforma ta' għajnuna kbira!&quot;">"The flexibility lets me care for my kids while exploring work opportunities from home. Very helpful platform!"</p>
-          <footer>— <span data-en="Carmel, Birkirkara" data-mt="Carmel, Birkirkara">Carmel, Birkirkara</span></footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Opportunity CTA -->
-  <section class="section cta">
-    <div class="container cta-inner fade-in">
-      <div>
-        <div class="opportunity-badge" data-en="🌟 OPPORTUNITIES AVAILABLE NOW!" data-mt="🌟 OPPORTUNITAJET DISPONIBBLI IMMA!">🌟 OPPORTUNITIES AVAILABLE NOW!</div>
-        <h2 data-en="Ready to Explore Flexible Work Opportunities?" data-mt="Lest biex Tesplora Opportunitajiet ta' Xogħol Flessibbli?">Ready to Explore Flexible Work Opportunities?</h2>
-        <p class="muted" data-en="New opportunities are regularly added to our platform. Submit your application today to discover what's available for your schedule." data-mt="Opportunitajiet ġodda qed jiżdiedu regolarment mal-pjattaforma tagħna. Ibgħat l-applikazzjoni tiegħek illum biex issib x'hemm disponibbli għas-skeda tiegħek.">New opportunities are regularly added to our platform. Submit your application today to discover what's available for your schedule.</p>
-      </div>
-      <a class="btn btn-primary btn-lg pulse open-form-btn" href="#" data-en="🚀 EXPLORE OPPORTUNITIES" data-mt="🚀 ESPLORA OPPORTUNITAJIET">🚀 EXPLORE OPPORTUNITIES</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section alt">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 data-en="❓ Frequently Asked Questions" data-mt="❓ Mistoqsijiet Frekwenti">❓ Frequently Asked Questions</h2>
-        <p class="muted" data-en="Everything you need to know before exploring our opportunities." data-mt="Kollox li għandek bżonn tkun taf qabel ma tesplora l-opportunitajiet tagħna.">Everything you need to know before exploring our opportunities.</p>
-      </div>
-      
-      <details class="faq fade-in">
-        <summary data-en="Is there any fee to apply or join?" data-mt="Hemm xi ħlas biex tapplika jew tingħaqad?">Is there any fee to apply or join?</summary>
-        <div data-en="<strong>Absolutely NOT!</strong> We never charge application or registration fees. Our platform is 100% free to join and use. You only explore opportunities - you never pay." data-mt="<strong>Assolutament LE!</strong> Aħna qatt ma nħaqslu ħlasijiet ta' applikazzjoni jew reġistrazzjoni. Il-pjattaforma tagħna hija 100% b'xejn biex tingħaqad u tużaha. Inti biss tesplora opportunitajiet - inti qatt ma tħallas."><strong>Absolutely NOT!</strong> We never charge application or registration fees. Our platform is 100% free to join and use. You only explore opportunities - you never pay.</div>
-      </details>
-      <details class="faq fade-in">
-        <summary data-en="How quickly will I get paid?" data-mt="Kif malajr se nħaħlas?">How quickly will I get paid?</summary>
-        <div data-en="<strong>Most participants receive payment within 24-48 hours</strong> of completing tasks. Payments are processed regularly after tasks pass our quality checks." data-mt="<strong>Il-maġġoranza tal-partecipanti jirċievu ħlas fi żmien 24-48 siegħa</strong> wara li jkomplu x-xogħol. Il-ħlasijiet jiġu pproċessati regolarment wara li x-xogħol jgħaddi mill-kontrolli tal-kwalità tagħna."><strong>Most participants receive payment within 24-48 hours</strong> of completing tasks. Payments are processed regularly after tasks pass our quality checks.</div>
-      </details>
-      <details class="faq fade-in">
-        <summary data-en="What equipment do I really need?" data-mt="X'għodda verament għandi bżonn?">What equipment do I really need?</summary>
-        <div data-en="<strong>Just a smartphone and internet connection!</strong> That's it. No fancy equipment needed. Most tasks can be completed right from your phone." data-mt="<strong>Biss smartphone u konnessjoni tal-internet!</strong> Dik hija. L-ebda għodda fancy meħtieġa. Il-maġġoranza tax-xogħol jista' jitlesta direttament mill-mowbajl tiegħek."><strong>Just a smartphone and internet connection!</strong> That's it. No fancy equipment needed. Most tasks can be completed right from your phone.</div>
-      </details>
-      <details class="faq fade-in">
-        <summary data-en="How will you contact me after I apply?" data-mt="Kif se tikkuntattjani wara li napplika?">How will you contact me after I apply?</summary>
-        <div data-en="<strong>We'll contact you via WhatsApp within hours</strong> with information about available opportunities and how to get started." data-mt="<strong>Aħna nikkuntattjawk permezz ta' WhatsApp fi żmien sigħat</strong> b'informazzjoni dwar l-opportunitajiet disponibbli u kif tibda."><strong>We'll contact you via WhatsApp within hours</strong> with information about available opportunities and how to get started.</div>
-      </details>
-      <details class="faq fade-in">
-        <summary data-en="What kind of tasks will I be doing?" data-mt="X'tip ta' xogħol se nagħmel?">What kind of tasks will I be doing?</summary>
-        <div data-en="<strong>Simple online activities</strong> like watching videos, completing surveys, testing apps, and other digital tasks that can be done from anywhere in Malta." data-mt="<strong>Attivitajiet onlajn sempliċi</strong> bħal tara vidjows, tkompli stħarriġ, ittestja apps, u xogħolijiet oħra diġitali li jistgħu jsiru minn kullimkien f'Malta."><strong>Simple online activities</strong> like watching videos, completing surveys, testing apps, and other digital tasks that can be done from anywhere in Malta.</div>
-      </details>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="#top">MaltaRemoteJobs</a>
-        <p class="muted small" data-en="Real opportunities. Zero fees. Explore flexible work today." data-mt="Opportunitajiet reali. Zero ħlas. Esplora xogħol flessibbli illum.">Real opportunities. Zero fees. Explore flexible work today.</p>
-      </div>
-      <nav class="footer-links">
-        <a id="privacy" href="privacy.html" rel="nofollow" data-en="Privacy Policy" data-mt="Politika tal-Privatezza">Privacy Policy</a>
-        <a id="terms" href="userterms.html" rel="nofollow" data-en="Terms of Service" data-mt="Termini tas-Servizz">Terms of Service</a>
-      </nav>
-    </div>
-    <div class="container">
-      <p class="muted small" data-en="© 2024 MaltaRemoteJobs. All rights reserved. Individual results may vary based on effort, task availability, and other factors. We do not guarantee specific earnings." data-mt="© 2024 MaltaRemoteJobs. Id-drittijiet kollha riżervati. Ir-riżultati individwali jistgħu jvarjaw skont l-isforz, id-disponibbiltà tax-xogħol, u fatturi oħra. Aħna ma ngarrfux ħlasijiet speċifiċi.">© 2024 MaltaRemoteJobs. All rights reserved. Individual results may vary based on effort, task availability, and other factors. We do not guarantee specific earnings.</p>
-    </div>
-  </footer>
-
   <script>
+    // JavaScript remains the same as in the previous version
+    // This ensures the conversion logic and Google Analytics events are preserved
     document.addEventListener('DOMContentLoaded', function() {
       // Language detection and switching
       const userLanguage = navigator.language || navigator.userLanguage;
